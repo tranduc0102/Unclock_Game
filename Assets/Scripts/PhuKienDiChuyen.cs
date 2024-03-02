@@ -34,7 +34,7 @@ public class PhuKienDiChuyen : BasePooling
 
         if (Timex <= 0)
         {
-            Timex = 36f;
+            Timex = 50f;
         }
     }
 }

@@ -4,5 +4,6 @@ namespace GameTool
     {
         None,
         PhuKienDiChuyen,
+        Vong,
     }
 }

@@ -11,24 +11,26 @@ public class Player : MonoBehaviour
     public Animator anim;
 
     private float checkTraiPhai = 0;
-    private float checkDiChuyen = 0;
 
 
     private void Update()
     {
         AnimationAndMove();
-        if (checkDiChuyen == 1)
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.W))
         {
-            var position = transform.position;
-            PoolingManager.Instance.GetObject(NamePrefabPool.PhuKienDiChuyen, position: new Vector3(position.x,position.y - 0.15f,0f)).Disable(0.1f);
-            checkDiChuyen = 0;
+            PoolingManager.Instance.GetObject(NamePrefabPool.PhuKienDiChuyen, position: new Vector3(transform.position.x, transform.position.y - 0.17f, 0f)).Disable(0.08f);
+        }
+
+        if (Input.GetKey(KeyCode.L))
+        {
+            PoolingManager.Instance.GetObject(NamePrefabPool.Vong,position: transform.position).Disable(0.000005f);
         }
     }
 
-    
-    
-    
-    
+
+
+
+
     void AnimationAndMove()
     {
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
@@ -57,7 +59,6 @@ public class Player : MonoBehaviour
             {
                 anim.SetFloat("DiChuyenTraiPhai", 1);
                 transform.localScale = new Vector3(1, 1, 0);
-                checkDiChuyen = 1;
                 transform.position += new Vector3(0.2f,0,0) * (speed * Time.deltaTime);
                 
                 if (Input.GetKey(KeyCode.L))
@@ -73,7 +74,6 @@ public class Player : MonoBehaviour
             {
                 anim.SetFloat("DiChuyenTraiPhai", 1);
                 transform.localScale = new Vector3(-1, 1, 0);
-                checkDiChuyen = 1;
                 transform.position += new Vector3(-0.2f,0,0) * (speed * Time.deltaTime);
                 
                 if (Input.GetKey(KeyCode.L))
@@ -96,7 +96,6 @@ public class Player : MonoBehaviour
             if (Input.GetKey(KeyCode.W))
             {
                 anim.SetFloat("DiChuyenDangSau", 1);
-                checkDiChuyen = 1;
                 transform.position += new Vector3(0,0.2f,0) * (speed * Time.deltaTime);
                 if (Input.GetKey(KeyCode.L))
                 {
@@ -128,7 +127,6 @@ public class Player : MonoBehaviour
             if (Input.GetAxisRaw("Vertical") < 0)
             {
                 anim.SetFloat("DiChuyenPhiaTruoc", 1);
-                checkDiChuyen = 1;
                 transform.position += new Vector3(0,-0.2f,0) * (speed * Time.deltaTime);
                 if (Input.GetKey(KeyCode.L))
                 {

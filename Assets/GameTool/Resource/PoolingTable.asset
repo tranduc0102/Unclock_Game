@@ -17,3 +17,7 @@ MonoBehaviour:
     ItemPooling:
       listPooling:
       - {fileID: 8026624453879954995, guid: c1e9e654b8fdaa44090ca0a1be6df8af, type: 3}
+  - key: Vong
+    ItemPooling:
+      listPooling:
+      - {fileID: 7028071370567628229, guid: d0fa9cef0043f9f449a10dbb014e0034, type: 3}
